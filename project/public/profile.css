@@ -1,0 +1,46 @@
+body{
+    background-color: white;
+
+}
+#profilebox{
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 100px;
+}
+#img {
+    height: 60px;
+    width: 60px;
+}
+#userbox {
+    border: 1px solid #ccc; 
+    height: 40px;
+    width: 500px;
+    margin-left: 100px;
+}
+a:link {
+    background-color:white;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    color:#22181C;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#username {
+    height: 100px;
+    padding: 25px;
+    font: cera-round-pro, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+
+#name {
+    font-family: monospace;
+    color: #22181C;
+    border: solid;
+    background-color: #F45B69;
+    border-color: #F45B69;
+    text-indent: 20px;
+    position: relative;
+}

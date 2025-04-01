@@ -1,0 +1,143 @@
+body {
+    background-color: white;
+}
+
+#name {
+    font-family: monospace;
+    color: #22181C;
+    border: solid;
+    background-color: #F45B69;
+    border-color: #F45B69;
+    text-indent: 20px;
+    position: relative;
+}
+
+#logoutbt {
+    position: absolute;
+    width: 100px;
+    color: #22181C;
+    top: 15px;
+    right: 40px;
+    text-align: center;
+}
+
+#loginbt {
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    border-radius: 25px;
+    background-color: #F6E8EA;
+    color: #22181C;
+    top: 15px;
+    right: 40px;
+    text-align: center;
+}
+a:link {
+    background-color:white;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#signupbt {
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    border-radius: 25px;
+    background-color: #F6E8EA;
+    color: #22181C;
+    top: 15px;
+    right: 150px;
+    text-align: center;
+}
+
+button a {
+    color: #22181C;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F45B69;
+}
+
+#searchbar {
+    position: absolute;
+    top: 25px;
+    right: 150px;
+    text-align: center;
+}
+
+.container {
+    margin-top: 150px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#ask_que {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#ask_que form {
+    display: inline-block;
+}
+
+#ask_que input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+#ask_que button {
+    padding: 10px 20px;
+    background-color: #152829;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.question-box {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.answer-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.answer-form {
+    margin-top: 10px;
+}
+
+.answer-form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+}
+
+.answer-form button {
+    padding: 10px 20px;
+    background-color:#152829;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+#searchbar {
+    text-align: center;
+}

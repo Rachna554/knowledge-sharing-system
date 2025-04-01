@@ -1,0 +1,99 @@
+<!-- home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="https://kit.fontawesome.com/4f58a2fa2b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="name">
+        <div id="name">
+            <h2><a style="background-color:#F45B69; border: #F45B69; color: #22181C; padding: 0;" href="/home">? Knowledge Sharing System</a></h2>
+        </div>
+    </div>
+    <div class="buttons">
+        <div id="searchbar">
+            <form action="/search" method="get">
+                <input type="text" name="search" id="search" placeholder="Search.." required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <div id="logoutbt">
+        <a href="/auth/logout" style="color: black; height: 12px;">Logout</a>
+    </div>
+    <div id="probut">
+        <a href="/profile">Profile</a>
+    </div>
+    <div id="ask_que">
+        <form action="/post" method="post" enctype="multipart/form-data">
+            <input type="text" id="askquestion" name="askquestion" placeholder="Ask Question..">
+            <button type="submit">Submit</button> <br><br><br>
+            <label for="questionImage">Upload an image:</label>
+            <input type="file" id="questionImage" name="questionImage" accept="image/*">
+            <input type="text" name="imageDescription" placeholder="Image Description (optional)">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Questions : </h2>
+        <% questions.forEach(question => { %>
+            <div class="question-box">
+                <p><strong>User:</strong> <%= question.username %></p>
+                <p><strong>Question:</strong> <%= question.Question %></p>
+                <% if (question.image) { %>
+                    <img src="<%= question.image %>" alt="Question Image" style="max-width: 200px;">
+                    <% if (question.imageDescription) { %>
+                        <p><strong>Description:</strong> <%= question.imageDescription %></p>
+                    <% } %>
+                <% } %>
+                <% if (question.answers && question.answers.length > 0) { %> 
+                    <% question.answers.forEach(answer => { %>
+                        <div class="answer-box">
+                            <p><strong>Answer:</strong> <%= answer.answer %></p>
+                            <p><strong>By:</strong> <%= answer.answeredBy %></p>
+                            <p><strong>Likes:</strong> <%= answer.likes %></p>
+                            <form action="/like" method="post" style="display: inline;">
+                                <input type="hidden" name="questionId" value="<%= question._id %>">
+                                <input type="hidden" name="answerId" value="<%= answer._id %>">
+                                <button type="submit" style="background: none; border: none; color: blue; cursor: pointer;">
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                </button>
+                            </form>
+                            <% if (answer.answeredBy === session.username) { %>
+                                <button onclick="toggleEditForm('<%= answer._id %>')">Edit</button>
+                                <form id="edit-form-<%= answer._id %>" action="/edit-answer-inline" method="post" style="display:none;">
+                                    <input type="hidden" name="questionId" value="<%= question._id %>">
+                                    <input type="hidden" name="answerId" value="<%= answer._id %>">
+                                    <textarea name="newAnswer" rows="4" cols="50"><%= answer.answer %></textarea>
+                                    <button type="submit">Save</button>
+                                </form>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>No answers yet.</p>
+                <% } %>
+                <form class="answer-form" action="/answer" method="post">
+                    <input type="hidden" name="questionId" value="<%= question._id %>">
+                    <input type="text" name="answer" placeholder="Your answer...">
+                    <button type="submit">Submit Answer</button>
+                </form>
+            </div>
+        <% }) %>
+    </div>
+    <script>
+        function toggleEditForm(answerId) {
+            const form = document.getElementById('edit-form-' + answerId);
+            if (form.style.display === 'none') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
