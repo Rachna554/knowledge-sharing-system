@@ -19,7 +19,6 @@ This project is built using:
 ## Installation & Setup  
 
 ### Clone this repository:  
-```bash
 git clone https://github.com/yourusername/knowledge-sharing-system.git
 
 
@@ -33,3 +32,10 @@ git clone https://github.com/yourusername/knowledge-sharing-system.git
 - npm start
 
 ### open ypur browser and go to : http://localhost:3000
+
+
+## Output : 
+![Project Screenshot](output1.png)
+![Project Screenshot](output2.png)
+![Project Screenshot](output3.png)
+
